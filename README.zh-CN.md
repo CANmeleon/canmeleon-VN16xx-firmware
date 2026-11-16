@@ -35,6 +35,67 @@ CANmeleon VN16xx 固件让支持的 CANmeleon USB-CAN/CAN FD 硬件在 Windows �
 
 软件配置见[固件指南](https://canmeleon.com/zh/firmware/vn1610/)。可选通道配置取决于运行模式和驱动。
 
+<!-- firmware-parameters:start -->
+## 固件特性与性能参数
+
+支持 VN1610 / VN1640 模式；通道数按硬件与授权选择。
+
+### 通信能力
+
+| 参数 | 能力 / 数值 | 备注 |
+| --- | --- | --- |
+| CAN 通道 | VN1610：2 路；VN1640：4 路 CAN / CAN FD | 每通道支持发送和接收；本表为 CAN 通道模式。 |
+| 报文格式 | 11 / 29 位 ID；Classic CAN 0–8 B，CAN FD 最高 64 B | 支持 Classic RTR；CAN FD 支持 BRS 开启 / 关闭。 |
+| Classic CAN 速率 | 5 kbit/s–1 Mbit/s | 通过上位机设置总线速率。 |
+| CAN FD 数据速率 | 最高 10 Mbit/s | 仲裁段与数据段独立配置；需配套相应速率的收发器和总线布线。 |
+| 自定义位时序 | 支持速率、采样点和 SJW 配置 | 在上位机中设置，固件自动适配。 |
+| 错误与节点状态 | 支持错误事件、发送 / 接收错误计数及 Bus-Off 状态上报 | 支持无 ACK、速率不匹配等故障的状态诊断。 |
+| Bus-Off 恢复 | 支持上位机复位恢复 | 复位或重新激活通道后恢复通信。 |
+| ISO-TP / UDS 接入 | 支持单会话诊断通信 | 配合上位机诊断软件使用。 |
+| 终端电阻控制 | 支持软件控制终端电阻 | 通过设备管理器设置；需配套软控终端硬件。 |
+| 总线负载率 | 支持显示总线负载率 | 与 Vector 原装显示值的典型差异不超过 1 个百分点。 |
+| 监听模式 | 支持 | 监听时不发送报文，也不向总线提供 ACK。 |
+
+### 时间戳
+
+| 参数 | 能力 / 数值 | 备注 |
+| --- | --- | --- |
+| 接收硬件时间戳 | 支持 | 记录报文接收时间，可用于报文时间间隔分析。 |
+| 发送完成硬件时间戳 | 支持 | 记录报文实际发送完成时间。 |
+| 同设备内时间戳精度 | 1 µs | 用于同一设备内各 CAN 通道的报文时间比较。 |
+| 多设备软件同步精度 | &lt; 10 µs | Vector 官方 VN1610 标称软件同步精度为典型 50 µs。 |
+| CAPL 时间戳读取 | 支持 time_ns（纳秒单位） | 读取报文时间并计算时间间隔。 |
+| 时间戳分辨率（XL API） | 约 8 µs | 使用配套 Vector 驱动读取报文时间戳。 |
+
+### 典型通信性能
+
+| 参数 | 能力 / 数值 | 备注 |
+| --- | --- | --- |
+| 8 字节报文单向传输帧率 | 约 23,000 帧/秒（短时） | CAN FD 标准帧，启用 BRS；1 Mbit/s 仲裁 / 8 Mbit/s 数据；单条总线、单向。 |
+| 64 字节报文接收帧率 | 约 10,100 帧/秒 | CAN FD 标准帧，启用 BRS；仲裁速率 1 Mbit/s，数据速率 8 Mbit/s。单条总线、单向。 |
+| 64 字节报文有效数据吞吐 | 约 5.18 Mbit/s | 与上一行相同的速率配置，单条总线、单向；仅计算接收报文的数据字段。 |
+
+### 软件配套
+
+| 参数 | 能力 / 数值 | 备注 |
+| --- | --- | --- |
+| 主机平台与开发接口 | 支持 Windows / Vector XL API | 使用 Vector 驱动，支持上位机接入和应用开发。 |
+| CANoe / CAPL | 支持 CAN 收发、发送完成回显和状态读取 | — |
+| 配套应用软件 | 支持 CANoe / CANalyzer / CANape | 安装 Vector 驱动。 |
+
+### 与原装的差异及不支持的功能
+
+| 参数 | 能力 / 数值 | 备注 |
+| --- | --- | --- |
+| CAN FD 数据速率 | 最高 10 Mbit/s | Vector 官方 VN1610 最高 8 Mbit/s。高速通信需配套相应速率的收发器和总线布线。 |
+| 发送自应答（TX Self-ACK） | 不支持 | 发送需要其他节点提供 ACK；没有 ACK 时会重试，后续发送可能等待。 |
+| 受限输出模式（Restricted） | 不支持 | 选择 Restricted 后仍按普通模式运行。 |
+| 收发器工作模式设置 | 仅支持正常模式（Normal） | 设置其他收发器模式时，设备仍保持正常收发状态。 |
+| 主动错误帧发送 / 故障注入 | 不支持 | Vector 官方 VN1610 支持主动错误帧发送；本固件支持错误检测、错误计数和 Bus-Off 状态上报。 |
+| Classic CAN 三次采样 | 不支持；使用单次采样 | 工程中选择单次采样。 |
+
+<!-- firmware-parameters:end -->
+
 ## 下载与安装
 
 1. 安装 [Windows x64 设备管理器](https://canmeleon.com/zh/device-manager/#downloads)，连接设备并核对型号和固件适用性。
@@ -61,3 +122,5 @@ CANmeleon VN16xx 固件让支持的 CANmeleon USB-CAN/CAN FD 硬件在 Windows �
 - [VN16xx 问题反馈](https://github.com/CANmeleon/canmeleon-VN16xx-firmware/issues)：附完整硬件型号、固件版本、运行模式、Vector 驱动版本、软件版本和复现步骤。
 - [管理器故障排查](https://canmeleon.com/zh/device-manager/faq/)：设备识别、安装或恢复问题。
 - [固件总览](https://github.com/CANmeleon/canmeleon-usb-can-firmware)：PCAN、GS USB、Kvaser、ES582 等其他软件路径。
+
+固件相关的问题和新需求可在 [GitHub 固件主仓库提 Issue](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues)。
