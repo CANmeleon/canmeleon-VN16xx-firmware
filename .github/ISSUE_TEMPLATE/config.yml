@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: VN16xx driver setup / VN16xx 驱动安装
+    url: https://canmeleon.com/en/guides/vector/driver/install/
+    about: Install the driver and check physical channel mapping.
+  - name: Device Manager issues / 管理器问题
+    url: https://github.com/CANmeleon/canmeleon-device-manager/issues
+    about: Report firmware installation, switching or recovery problems in the manager repository.
