@@ -6,6 +6,12 @@ CANmeleon VN16xx firmware connects supported CANmeleon USB-CAN/CAN FD hardware t
 
 **[Supported hardware](#supported-hardware)** · [Download and install](#download-and-install) · [VN16xx guide](https://canmeleon.com/en/firmware/vn1610/) · [All CANmeleon firmware](https://github.com/CANmeleon/canmeleon-usb-can-firmware)
 
+## When to choose VN16xx firmware
+
+- Connect supported CANmeleon hardware to CANoe, CANalyzer or CANape on Windows.
+- Develop a custom CAN tool using Vector XL Driver Library (vxlapi).
+- Choose VN1610 or VN1640A mode using the physical channel count, firmware version and license; then map channels in the Vector hardware configuration tool.
+
 ## Supported hardware
 
 Install this CANmeleon firmware on the supported platforms below. The model is the physical hardware you own; VN1610/VN1640A identifies its firmware operating mode.
@@ -127,8 +133,10 @@ This repository provides compatibility and installation documentation with binar
 
 ## Help and related firmware
 
-- [Report a VN16xx issue](https://github.com/CANmeleon/canmeleon-VN16xx-firmware/issues): include the full hardware model, firmware version, active mode, Vector driver version, software version and steps to reproduce.
+- [Report a VN16xx issue](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues): include the full hardware model, firmware version, active mode, Vector driver version, software version and steps to reproduce.
 - [Device Manager troubleshooting](https://canmeleon.com/en/device-manager/faq/) for detection, installation or recovery issues.
 - [Firmware catalog](https://github.com/CANmeleon/canmeleon-usb-can-firmware) for PCAN, GS USB, Kvaser, ES582 and other software workflows.
 
 Firmware problems and new feature requests can be submitted as [Issues in the main firmware repository](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues).
+
+[CANmeleon hardware, OEM integration and firmware porting](https://github.com/CANmeleon)

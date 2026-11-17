@@ -6,6 +6,12 @@ CANmeleon VN16xx 固件让支持的 CANmeleon USB-CAN/CAN FD 硬件在 Windows �
 
 **[支持硬件](#支持硬件)** · [下载与安装](#下载与安装) · [VN16xx 使用指南](https://canmeleon.com/zh/firmware/vn1610/) · [CANmeleon 固件总览](https://github.com/CANmeleon/canmeleon-usb-can-firmware)
 
+## 什么时候选择 VN16xx 固件
+
+- 将适用的 CANmeleon 硬件接入 Windows 上的 CANoe、CANalyzer 或 CANape。
+- 使用 Vector XL Driver Library（vxlapi）开发自有 CAN 工具。
+- 按物理通道、固件版本与授权选择 VN1610 或 VN1640A 模式，再在 Vector 硬件配置工具中映射通道。
+
 ## 支持硬件
 
 本固件安装于下列 CANmeleon 平台。设备型号表示实际硬件，VN1610/VN1640A 表示其固件运行模式。
@@ -119,8 +125,10 @@ CANmeleon VN16xx 固件让支持的 CANmeleon USB-CAN/CAN FD 硬件在 Windows �
 
 ## 帮助与相关固件
 
-- [VN16xx 问题反馈](https://github.com/CANmeleon/canmeleon-VN16xx-firmware/issues)：附完整硬件型号、固件版本、运行模式、Vector 驱动版本、软件版本和复现步骤。
+- [VN16xx 问题反馈](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues)：附完整硬件型号、固件版本、运行模式、Vector 驱动版本、软件版本和复现步骤。
 - [管理器故障排查](https://canmeleon.com/zh/device-manager/faq/)：设备识别、安装或恢复问题。
 - [固件总览](https://github.com/CANmeleon/canmeleon-usb-can-firmware)：PCAN、GS USB、Kvaser、ES582 等其他软件路径。
 
 固件相关的问题和新需求可在 [GitHub 固件主仓库提 Issue](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues)。
+
+[CANmeleon 硬件、OEM 集成与固件移植](https://github.com/CANmeleon/.github/blob/main/profile/README.zh-CN.md)
