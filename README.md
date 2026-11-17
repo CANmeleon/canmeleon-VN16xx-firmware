@@ -2,19 +2,19 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-CANmeleon VN16xx firmware connects supported CANmeleon USB-CAN/CAN FD hardware to the Vector driver and CANoe, CANalyzer, CANape or XL Driver Library (vxlapi) workflows on Windows. Select VN1610 or VN1640A operation according to the firmware version, hardware and available license.
+CANmeleon VN16xx firmware connects supported USB-CAN/CAN FD hardware to the Vector driver and CANoe, CANalyzer, CANape or XL Driver Library (vxlapi) workflows on Windows. Select VN1610 or VN1640A operation according to the firmware version, hardware and available license.
 
 **[Supported hardware](#supported-hardware)** · [Download and install](#download-and-install) · [VN16xx guide](https://canmeleon.com/en/firmware/vn1610/) · [All CANmeleon firmware](https://github.com/CANmeleon/canmeleon-usb-can-firmware)
 
 ## When to choose VN16xx firmware
 
-- Connect supported CANmeleon hardware to CANoe, CANalyzer or CANape on Windows.
+- Connect hardware with a matching CANmeleon firmware port to CANoe, CANalyzer or CANape on Windows.
 - Develop a custom CAN tool using Vector XL Driver Library (vxlapi).
 - Choose VN1610 or VN1640A mode using the physical channel count, firmware version and license; then map channels in the Vector hardware configuration tool.
 
 ## Supported hardware
 
-Install this CANmeleon firmware on the supported platforms below. The model is the physical hardware you own; VN1610/VN1640A identifies its firmware operating mode.
+The supported platforms below are commercial adaptation examples using Kunhong KHCM chips or derived hardware. Install the package matching your exact model. The model is the physical hardware you own; VN1610/VN1640A identifies its firmware operating mode.
 
 | Hardware | Physical channels | Hardware documentation |
 | --- | --- | --- |
@@ -139,4 +139,8 @@ This repository provides compatibility and installation documentation with binar
 
 Firmware problems and new feature requests can be submitted as [Issues in the main firmware repository](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues).
 
-[CANmeleon hardware, OEM integration and firmware porting](https://github.com/CANmeleon)
+## Ecosystem participation and commercial services
+
+CANmeleon works with hardware makers, chip vendors and developers. For software/firmware integration, CANmeleon firmware porting and maintenance on your chip platform, or custom firmware development, contact [len2slaw@foxmail.com](mailto:len2slaw@foxmail.com). Include your board/MCU, target API, required features and schedule.
+
+[Open-source hardware and free adaptation program](https://github.com/CANmeleon#open-source-development-and-free-firmware-adaptations) · [Request an open-source board adaptation](https://github.com/CANmeleon/canmeleon-usb-can-firmware/issues/new?template=open_hardware_adaptation.md)
